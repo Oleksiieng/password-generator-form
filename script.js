@@ -90,8 +90,8 @@ let upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let length = prompt("Length of password (8-128 characters):");
-  if (length < 8 || length > 128) {
+  let passwordLength = prompt("Length of password (8-128 characters):");
+  if (passwordLength < 8 || passwordLength > 128) {
     alert("Invalid length. Please choose between 8 and 128 characters.");
     return null;
   }
@@ -107,7 +107,7 @@ function getPasswordOptions() {
   }
 
   return {
-    length: length,
+    passwordLength: passwordLength,
     includeLower: includeLower,
     includeUpper: includeUpper,
     includeNumeric: includeNumeric,
@@ -132,7 +132,7 @@ function generatePassword() {
   let password = "";
   let possibleCharacters = getPossibleCharacters(options);
 
-  for (let i = 0; i < options.length; i++) {
+  for (let i = 0; i < options.passwordLength; i++) {
     password += getRandom(possibleCharacters);
   }
 
