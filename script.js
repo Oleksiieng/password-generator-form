@@ -117,6 +117,7 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  return 'd';
 
 }
 
@@ -126,8 +127,36 @@ function generatePassword() {
   if (!options) {
     return "";
   }
-  console.log(options);
 
+  let password = "";
+  let possibleCharacters = getPossibleCharacters(options);
+
+  for (let i = 0; i < options.length; i++) {
+    password += getRandom(possibleCharacters);
+  }
+
+  return password;
+}
+
+
+function getPossibleCharacters(options)
+{
+  let  possibleCharacters = [];
+
+  if (options.includeLower) {
+    possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+  }
+  if (options.includeUpper) {
+    possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+  }
+  if (options.includeNumeric) {
+    possibleCharacters = possibleCharacters.concat(numericCharacters);
+  }
+  if (options.includeSpecial) {
+    possibleCharacters = possibleCharacters.concat(specialCharacters);
+  }
+
+  return possibleCharacters;
 }
 
 // Get references to the #generate element
