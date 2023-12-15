@@ -117,8 +117,9 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  return 'd';
+  let randomIndex = Math.floor(Math.random() * arr.length);
 
+  return arr[randomIndex];
 }
 
 // Function to generate password with user input
@@ -139,9 +140,8 @@ function generatePassword() {
 }
 
 
-function getPossibleCharacters(options)
-{
-  let  possibleCharacters = [];
+function getPossibleCharacters(options) {
+  let possibleCharacters = [];
 
   if (options.includeLower) {
     possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
