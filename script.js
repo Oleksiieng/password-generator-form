@@ -90,8 +90,8 @@ let upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let passwordLength = prompt("Length of password (8-128 characters):");
-  if (passwordLength < 8 || passwordLength > 128) {
+  let passwordLength = parseInt(prompt("Length of password (8-128 characters):"));
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("Invalid length. Please choose between 8 and 128 characters.");
     return null;
   }
